@@ -4,6 +4,9 @@ pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
 
+    // Export module
+    _ = b.addModule("all", .{ .source_file = .{ .path = "src/root.zig" } });
+
     const lib = b.addStaticLibrary(.{
         .name = "test-zon",
         .root_source_file = .{ .path = "src/root.zig" },
