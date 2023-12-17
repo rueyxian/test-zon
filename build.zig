@@ -5,7 +5,7 @@ pub fn build(b: *std.Build) void {
     const optimize = b.standardOptimizeOption(.{});
 
     // Export module
-    _ = b.addModule("testzon", .{ .source_file = .{ .path = "src/root.zig" } });
+    _ = b.addModule("test-zon", .{ .source_file = .{ .path = "src/root.zig" } });
 
     const lib = b.addStaticLibrary(.{
         .name = "test-zon",
