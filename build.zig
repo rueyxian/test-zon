@@ -7,14 +7,13 @@ pub fn build(b: *std.Build) void {
     // Export module
     _ = b.addModule("test-zon", .{ .source_file = .{ .path = "src/root.zig" } });
 
-    // const lib = b.addStaticLibrary(.{
-    //     .name = "test-zon",
-    //     .root_source_file = .{ .path = "src/root.zig" },
-    //     .target = target,
-    //     .optimize = optimize,
-    // });
-
-    // b.installArtifact(lib);
+    const lib = b.addStaticLibrary(.{
+        .name = "test-zon",
+        .root_source_file = .{ .path = "src/root.zig" },
+        .target = target,
+        .optimize = optimize,
+    });
+    b.installArtifact(lib);
 
     const lib_unit_tests = b.addTest(.{
         .root_source_file = .{ .path = "src/root.zig" },
