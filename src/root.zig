@@ -62,4 +62,6 @@ test "static counter" {
     try testing.expect(f3() == 2);
     try testing.expect(f2() == 4);
     try testing.expect(f1() == 3);
+
+    // try testing.expect(false);
 }
